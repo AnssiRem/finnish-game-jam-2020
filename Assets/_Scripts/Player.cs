@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody), typeof(CapsuleCollider))]
 public class Player : MonoBehaviour
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
 
     private KeyCode fireKey = KeyCode.LeftControl;
     private KeyCode jumpKey = KeyCode.Space;
+    private KeyCode resetKey = KeyCode.R;
 
     [SerializeField] private float jumpAcceleration = 350f;
     [SerializeField] private float moveAcceleration = 1000f;
@@ -45,6 +47,10 @@ public class Player : MonoBehaviour
         else if (Input.GetKeyUp(fireKey))
         {
             SetFiring(false);
+        }
+        else if (Input.GetKeyDown(resetKey))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         Fire(isFiring);
@@ -81,17 +87,21 @@ public class Player : MonoBehaviour
             Ray ray = new Ray(transform.localPosition + transform.up * 2.5f, dir.normalized);
             RaycastHit[] hits = Physics.RaycastAll(ray, 10f);
             Debug.DrawLine(transform.localPosition + transform.up * 2.5f,
-                transform.localPosition + dir.normalized * 10f, Color.blue, 0.1f);
+                transform.localPosition + transform.up * 2.5f + dir.normalized * 10f, Color.blue, 0.1f);
             foreach (RaycastHit hit in hits)
             {
-                Debug.DrawLine(hit.point + Vector3.up * 0.1f, hit.point - Vector3.up * 0.1f, Color.red, 0.1f);
-                Debug.DrawLine(hit.point + Vector3.right * 0.1f, hit.point - Vector3.right * 0.1f, Color.red, 0.1f);
-                Debug.DrawLine(hit.point + Vector3.forward * 0.1f, hit.point - Vector3.forward * 0.1f, Color.red, 0.1f);
+                Color color = Color.red;
 
                 if (hit.collider.tag == "Hole")
                 {
                     hit.transform.GetComponent<Hole>().Fill();
+
+                    color = Color.green;
                 }
+
+                Debug.DrawLine(hit.point + Vector3.up * 0.1f, hit.point - Vector3.up * 0.1f, color, 0.1f);
+                Debug.DrawLine(hit.point + Vector3.right * 0.1f, hit.point - Vector3.right * 0.1f, color, 0.1f);
+                Debug.DrawLine(hit.point + Vector3.forward * 0.1f, hit.point - Vector3.forward * 0.1f, color, 0.1f);
             }
         }
     }
