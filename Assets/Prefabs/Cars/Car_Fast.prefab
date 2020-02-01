@@ -14261,11 +14261,11 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 0
+  m_UseCustomVertexStreams: 1
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
-  m_VertexStreams: 00010304
+  m_VertexStreams: 00030409
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -19024,11 +19024,11 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 0
+  m_UseCustomVertexStreams: 1
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
-  m_VertexStreams: 00010304
+  m_VertexStreams: 00030409
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -19142,7 +19142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f12af2f9cdc85438080b3572a550a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRight: 0
 --- !u!54 &8651572024756263490
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19302,7 +19301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f12af2f9cdc85438080b3572a550a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRight: 1
 --- !u!54 &2180851484806229758
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19462,7 +19460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f12af2f9cdc85438080b3572a550a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRight: 0
 --- !u!54 &4585037111640832894
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19622,7 +19619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f12af2f9cdc85438080b3572a550a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRight: 1
 --- !u!54 &3374617421632721957
 Rigidbody:
   m_ObjectHideFlags: 0
