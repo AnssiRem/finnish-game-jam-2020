@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody), typeof(CapsuleCollider))]
 public class Player : MonoBehaviour
 {
+    private bool isFiring;
     private Animator animator;
     private Rigidbody rb;
     private Vector3 moveDirection;
@@ -32,12 +33,14 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(fireKey))
         {
-            Fire(true);
+            SetFiring(true);
         }
         else if (Input.GetKeyUp(fireKey))
         {
-            Fire(false);
+            SetFiring(false);
         }
+
+        Fire(isFiring);
     }
 
     private void FixedUpdate()
@@ -45,14 +48,35 @@ public class Player : MonoBehaviour
         MoveCharacter();
     }
 
-    private void Fire(bool state)
+    private void SetFiring(bool state)
     {
+        isFiring = state;
         gun.SetActive(state);
         animator.SetBool("HoldingGun", state);
-
-        // TODO: Apply further tursotin logic here
     }
 
+    private void Fire(bool isFiring)
+    {
+        if (isFiring)
+        {
+            Vector3 dir = transform.forward * 2f - transform.up * 1f;
+            Ray ray = new Ray(transform.localPosition + transform.up * 2.5f, dir.normalized);
+            RaycastHit[] hits = Physics.RaycastAll(ray, 10f);
+            Debug.DrawLine(transform.localPosition + transform.up * 2.5f,
+                transform.localPosition + dir.normalized * 10f, Color.blue, 0.1f);
+            foreach (RaycastHit hit in hits)
+            {
+                Debug.DrawLine(hit.point + Vector3.up * 0.1f, hit.point - Vector3.up * 0.1f, Color.red, 0.1f);
+                Debug.DrawLine(hit.point + Vector3.right * 0.1f, hit.point - Vector3.right * 0.1f, Color.red, 0.1f);
+                Debug.DrawLine(hit.point + Vector3.forward * 0.1f, hit.point - Vector3.forward * 0.1f, Color.red, 0.1f);
+
+                if (hit.collider.tag == "Hole")
+                {
+                    hit.transform.GetComponent<Hole>().Fill();
+                }
+            }
+        }
+    }
 
     private void MoveCharacter()
     {
