@@ -10,8 +10,10 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
     private Vector3 moveDirection;
 
-    private KeyCode fireKey = KeyCode.Space;
+    private KeyCode fireKey = KeyCode.LeftControl;
+    private KeyCode jumpKey = KeyCode.Space;
 
+    [SerializeField] private float jumpAcceleration = 350f;
     [SerializeField] private float moveAcceleration = 1000f;
     [SerializeField] private float moveMaxSpeed = 10f;
     [SerializeField] private float turnSpeed = 1f;
@@ -31,7 +33,12 @@ public class Player : MonoBehaviour
     {
         moveDirection = GetMoveDirection();
 
-        if (Input.GetKeyDown(fireKey))
+        if (Input.GetKeyDown(jumpKey))
+        {
+            SetFiring(false);
+            Jump();
+        }
+        else if (Input.GetKeyDown(fireKey))
         {
             SetFiring(true);
         }
@@ -76,6 +83,32 @@ public class Player : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void Jump()
+    {
+        bool isGrounded = false;
+
+        Ray ray = new Ray(transform.localPosition + transform.up * 1f, -transform.up);
+        RaycastHit[] hits = Physics.RaycastAll(ray, 2f);
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.transform.gameObject.layer != 12)
+            {
+                isGrounded = true;
+            }
+        }
+
+        if (isGrounded)
+        {
+            JumpProceed();
+        }
+    }
+
+    private void JumpProceed()
+    {
+        animator.SetTrigger("Jump");
+        rb.AddForce(transform.up * jumpAcceleration);
     }
 
     private void MoveCharacter()

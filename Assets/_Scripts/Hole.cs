@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Hole : MonoBehaviour
 {
-    private float growthSpeed = 0.5f;
-    private float fillSpeed = 0.5f;
     private Collider lajaColl = null;
 
+    [SerializeField] private float fillSpeed = 0.5f;
+    [SerializeField] private float growthSpeed = 0.5f;
     [SerializeField] private float offsetY = 1f;
     [SerializeField] private GameObject laja = null;
 
