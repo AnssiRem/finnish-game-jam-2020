@@ -24,29 +24,24 @@ public class Hole : MonoBehaviour
             0.001f, laja.transform.localScale.z);
     }
 
-    private void FixedUpdate()
-    {
-        Fill();
-    }
-
-    private void Fill()
+    public void Fill()
     {
         if (transform.position.y > laja.transform.position.y)
         {
-            laja.transform.localPosition += Vector3.up * fillSpeed * Time.fixedDeltaTime;
+            laja.transform.localPosition += Vector3.up * fillSpeed * Time.deltaTime;
         }
         else if (laja.transform.localScale.y < laja.transform.localScale.x + laja.transform.localScale.z)
         {
             laja.transform.localScale = new Vector3(laja.transform.localScale.x,
-                laja.transform.localScale.y + growthSpeed * Time.fixedDeltaTime,
+                laja.transform.localScale.y + growthSpeed * Time.deltaTime,
                 laja.transform.localScale.z);
         }
         else
         {
 
             laja.transform.localScale = new Vector3(laja.transform.localScale.x + growthSpeed * 0.033f * Time.fixedDeltaTime,
-                laja.transform.localScale.y + growthSpeed * 0.033f * Time.fixedDeltaTime,
-                laja.transform.localScale.z + growthSpeed * 0.033f * Time.fixedDeltaTime);
+                laja.transform.localScale.y + growthSpeed * 0.033f * Time.deltaTime,
+                laja.transform.localScale.z + growthSpeed * 0.033f * Time.deltaTime);
         }
     }
 
