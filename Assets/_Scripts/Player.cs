@@ -6,8 +6,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private bool isFiring;
-    private bool isJump;
-    private bool isAirborne;
     private Animator animator;
     private Rigidbody rb;
     private Vector3 moveDirection;
@@ -24,6 +22,7 @@ public class Player : MonoBehaviour
     [Header("References")]
 
     [SerializeField] GameObject gun = null;
+    [SerializeField] ParticleSystem dust = null;
 
     private void Start()
     {
@@ -35,9 +34,8 @@ public class Player : MonoBehaviour
     {
         moveDirection = GetMoveDirection();
 
-        if (Input.GetKeyDown(jumpKey) && !animator.GetBool("Jumping") && !isJump)
+        if (Input.GetKeyDown(jumpKey))
         {
-            SetFiring(false);
             Jump();
         }
         else if (Input.GetKeyDown(fireKey))
@@ -61,7 +59,17 @@ public class Player : MonoBehaviour
     private void SetFiring(bool state)
     {
         isFiring = state;
-        gun.SetActive(state);
+        gun.GetComponentInChildren<MeshRenderer>().enabled = state;
+
+        if (state)
+        {
+            gun.GetComponentInChildren<ParticleSystem>().Play();
+        }
+        else
+        {
+            gun.GetComponentInChildren<ParticleSystem>().Stop();
+        }
+
         animator.SetBool("HoldingGun", state);
     }
 
@@ -102,7 +110,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (isGrounded)
+        if (isGrounded && !animator.GetBool("Jumping"))
         {
             JumpProceed();
         }
@@ -113,7 +121,6 @@ public class Player : MonoBehaviour
         animator.SetTrigger("Jump");
         animator.SetBool("Jumping", true);
         Invoke("ApplyJumpForce", 0.35f);
-        Invoke("ForceLand", 5f);
     }
 
     private void ApplyJumpForce()
@@ -123,28 +130,7 @@ public class Player : MonoBehaviour
 
     private void Land()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fall") && !isAirborne)
-        {
-            if (!isJump && animator.GetBool("Jumping"))
-            {
-                isJump = true;
-            }
-            else
-            {
-                isAirborne = true;
-
-                Ray ray = new Ray(transform.localPosition + transform.up * 1f, -transform.up);
-                RaycastHit[] hits = Physics.RaycastAll(ray, 2f);
-                foreach (RaycastHit hit in hits)
-                {
-                    if (hit.transform.gameObject.layer != 12)
-                    {
-                        isAirborne = false;
-                    }
-                }
-            }
-        }
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fall") && isAirborne)
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fall") && rb.velocity.y <= 0)
         {
             Ray ray = new Ray(transform.localPosition + transform.up * 1f, -transform.up);
             RaycastHit[] hits = Physics.RaycastAll(ray, 2f);
@@ -153,20 +139,8 @@ public class Player : MonoBehaviour
                 if (hit.transform.gameObject.layer != 12)
                 {
                     animator.SetBool("Jumping", false);
-                    isAirborne = false;
-                    isJump = false;
                 }
             }
-        }
-    }
-
-    private void ForceLand()
-    {
-        if (animator.GetBool("Jumping"))
-        {
-            animator.SetBool("Jumping", false);
-            isAirborne = false;
-            isJump = false;
         }
     }
 
@@ -178,10 +152,19 @@ public class Player : MonoBehaviour
         if (horizontalVel > runTreshold)
         {
             animator.SetBool("Running", true);
+
+            if (dust.isStopped)
+            {
+                dust.Play();
+            }
         }
         else if (moveDirection == Vector3.zero)
         {
             animator.SetBool("Running", false);
+            if (dust.isPlaying)
+            {
+                dust.Stop();
+            }
         }
 
         // Move character
