@@ -9,10 +9,16 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
     private Vector3 moveDirection;
 
+    private KeyCode fireKey = KeyCode.Space;
+
     [SerializeField] private float moveAcceleration = 1000f;
     [SerializeField] private float moveMaxSpeed = 10f;
     [SerializeField] private float turnSpeed = 1f;
     [SerializeField] private float runTreshold = 1f;
+
+    [Header("References")]
+
+    [SerializeField] GameObject gun = null;
 
     private void Start()
     {
@@ -23,12 +29,30 @@ public class Player : MonoBehaviour
     private void Update()
     {
         moveDirection = GetMoveDirection();
+
+        if (Input.GetKeyDown(fireKey))
+        {
+            Fire(true);
+        }
+        else if (Input.GetKeyUp(fireKey))
+        {
+            Fire(false);
+        }
     }
 
     private void FixedUpdate()
     {
         MoveCharacter();
     }
+
+    private void Fire(bool state)
+    {
+        gun.SetActive(state);
+        animator.SetBool("HoldingGun", state);
+
+        // TODO: Apply further tursotin logic here
+    }
+
 
     private void MoveCharacter()
     {
