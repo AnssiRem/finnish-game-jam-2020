@@ -33,9 +33,4 @@ public class CarWheel : MonoBehaviour
 
         rb.AddForceAtPosition(force, forcePos);
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawLine(transform.position + car.up * radius, transform.position + Vector3.up * radius + car.right * driveForce);
-    }
 }
