@@ -6,6 +6,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private bool isFiring;
+    private bool isJump;
+    private bool isAirborne;
     private Animator animator;
     private Rigidbody rb;
     private Vector3 moveDirection;
@@ -33,7 +35,7 @@ public class Player : MonoBehaviour
     {
         moveDirection = GetMoveDirection();
 
-        if (Input.GetKeyDown(jumpKey))
+        if (Input.GetKeyDown(jumpKey) && !animator.GetBool("Jumping") && !isJump)
         {
             SetFiring(false);
             Jump();
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour
         }
 
         Fire(isFiring);
+        Land();
     }
 
     private void FixedUpdate()
@@ -108,7 +111,63 @@ public class Player : MonoBehaviour
     private void JumpProceed()
     {
         animator.SetTrigger("Jump");
+        animator.SetBool("Jumping", true);
+        Invoke("ApplyJumpForce", 0.35f);
+        Invoke("ForceLand", 5f);
+    }
+
+    private void ApplyJumpForce()
+    {
         rb.AddForce(transform.up * jumpAcceleration);
+    }
+
+    private void Land()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fall") && !isAirborne)
+        {
+            if (!isJump && animator.GetBool("Jumping"))
+            {
+                isJump = true;
+            }
+            else
+            {
+                isAirborne = true;
+
+                Ray ray = new Ray(transform.localPosition + transform.up * 1f, -transform.up);
+                RaycastHit[] hits = Physics.RaycastAll(ray, 2f);
+                foreach (RaycastHit hit in hits)
+                {
+                    if (hit.transform.gameObject.layer != 12)
+                    {
+                        isAirborne = false;
+                    }
+                }
+            }
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fall") && isAirborne)
+        {
+            Ray ray = new Ray(transform.localPosition + transform.up * 1f, -transform.up);
+            RaycastHit[] hits = Physics.RaycastAll(ray, 2f);
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.transform.gameObject.layer != 12)
+                {
+                    animator.SetBool("Jumping", false);
+                    isAirborne = false;
+                    isJump = false;
+                }
+            }
+        }
+    }
+
+    private void ForceLand()
+    {
+        if (animator.GetBool("Jumping"))
+        {
+            animator.SetBool("Jumping", false);
+            isAirborne = false;
+            isJump = false;
+        }
     }
 
     private void MoveCharacter()
