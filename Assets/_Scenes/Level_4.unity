@@ -374,17 +374,17 @@ PrefabInstance:
     - target: {fileID: 3288464043034705996, guid: ff3538c0cedb2a14bb5f4933ea11df93,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 4.4042997
       objectReference: {fileID: 0}
     - target: {fileID: 3288464043034705996, guid: ff3538c0cedb2a14bb5f4933ea11df93,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 20
+      value: 12.0754
       objectReference: {fileID: 0}
     - target: {fileID: 3288464043034705996, guid: ff3538c0cedb2a14bb5f4933ea11df93,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 5.6704
       objectReference: {fileID: 0}
     - target: {fileID: 3288464043034706003, guid: ff3538c0cedb2a14bb5f4933ea11df93,
         type: 3}
@@ -821,17 +821,17 @@ PrefabInstance:
     - target: {fileID: 3288464043034705996, guid: ff3538c0cedb2a14bb5f4933ea11df93,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 5.0066
       objectReference: {fileID: 0}
     - target: {fileID: 3288464043034705996, guid: ff3538c0cedb2a14bb5f4933ea11df93,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 20
+      value: 12.052
       objectReference: {fileID: 0}
     - target: {fileID: 3288464043034705996, guid: ff3538c0cedb2a14bb5f4933ea11df93,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 4.2989
       objectReference: {fileID: 0}
     - target: {fileID: 3288464043034706003, guid: ff3538c0cedb2a14bb5f4933ea11df93,
         type: 3}
@@ -1666,12 +1666,12 @@ PrefabInstance:
     - target: {fileID: 7998980021889601473, guid: 0f2afda9fc1f13040a2ded6f316a45a8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0017594162
+      value: -0.001759464
       objectReference: {fileID: 0}
     - target: {fileID: 7998980021889601473, guid: 0f2afda9fc1f13040a2ded6f316a45a8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0006438265
+      value: 0.00064383703
       objectReference: {fileID: 0}
     - target: {fileID: 7998980021889601473, guid: 0f2afda9fc1f13040a2ded6f316a45a8,
         type: 3}
