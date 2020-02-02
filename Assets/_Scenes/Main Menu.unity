@@ -4329,7 +4329,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.2483349, y: 0.07173918, z: -0.019481082, w: 0.9658177}
+  m_LocalRotation: {x: 0.24833491, y: 0.071739204, z: -0.019481089, w: 0.9658177}
   m_LocalPosition: {x: -0.67, y: 6.85, z: -12.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4750,7 +4750,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pavement Patcher
+  m_Text: Pothole Patcher
 --- !u!222 &1011242387
 CanvasRenderer:
   m_ObjectHideFlags: 0
