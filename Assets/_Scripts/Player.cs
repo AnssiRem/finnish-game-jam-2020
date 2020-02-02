@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private KeyCode fireKey = KeyCode.LeftControl;
     private KeyCode jumpKey = KeyCode.Space;
     private KeyCode resetKey = KeyCode.R;
+    private KeyCode skipKey = KeyCode.Alpha8;
 
     [SerializeField] private float jumpAcceleration = 350f;
     [SerializeField] private float moveAcceleration = 1000f;
@@ -58,6 +59,10 @@ public class Player : MonoBehaviour
         else if (Input.GetKeyDown(resetKey))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else if (Input.GetKeyDown(skipKey))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         Fire(isFiring);

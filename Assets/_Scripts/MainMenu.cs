@@ -7,15 +7,15 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject credits;
 
-        public void LoadScene(string sceneName)
-        {
-            SceneManager.LoadScene("Jannescene");
-        }
+    public void LoadScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
+    }
 
-            public void ExitGame()
-            {
-                Application.Quit();
-            }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 
     public void Credits()
     {
@@ -26,6 +26,6 @@ public class MainMenu : MonoBehaviour
     {
         credits.SetActive(false);
     }
-        }
-    
+}
+
 
