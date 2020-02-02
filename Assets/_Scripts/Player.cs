@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(Rigidbody), typeof(CapsuleCollider))]
+[RequireComponent(typeof(Rigidbody), typeof(CapsuleCollider), typeof(PlayerGunAudio))]
 public class Player : MonoBehaviour
 {
     private bool isFiring;
@@ -26,10 +26,14 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject gun = null;
     [SerializeField] ParticleSystem dust = null;
 
+    //Audio
+    private PlayerGunAudio playerAudio;
+
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
+        playerAudio = GetComponent<PlayerGunAudio>();
     }
 
     private void Update()
@@ -38,15 +42,18 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(jumpKey))
         {
+            playerAudio.StopShootSFX();
             Jump();
         }
         else if (Input.GetKeyDown(fireKey))
         {
             SetFiring(true);
+            playerAudio.StartShootSFX();
         }
         else if (Input.GetKeyUp(fireKey))
         {
             SetFiring(false);
+            playerAudio.StopShootSFX();
         }
         else if (Input.GetKeyDown(resetKey))
         {
