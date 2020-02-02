@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GM : MonoBehaviour
 {
+    private bool win;
     private List<Car> cars = new List<Car>();
     private List<Toggle> flags = new List<Toggle>();
+
+    private IEnumerator coroutine = null;
 
     [Header("Prefabs")]
 
@@ -15,8 +19,9 @@ public class GM : MonoBehaviour
     [Header("References")]
 
     [SerializeField] private GameObject layoutObject = null;
+    [SerializeField] private GameObject winText = null;
 
-    void Start()
+    private void Awake()
     {
         foreach (Car car in FindObjectsOfType<Car>())
         {
@@ -25,7 +30,7 @@ public class GM : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         bool allTrue = true;
 
@@ -37,9 +42,24 @@ public class GM : MonoBehaviour
             }
         }
 
-        if (allTrue)
+        if (allTrue && !win)
         {
-            print("YOU DA WINNER!");
+            win = true;
+
+            coroutine = WinCoroutine();
+            StartCoroutine(coroutine);
         }
+    }
+
+    private IEnumerator WinCoroutine()
+    {
+        string text = "JOB WELL DONE!";
+
+        winText.SetActive(true);
+        winText.GetComponent<Text>().text = text;
+
+        yield return new WaitForSeconds(5f);
+
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
