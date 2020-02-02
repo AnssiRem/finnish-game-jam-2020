@@ -1800,7 +1800,7 @@ PrefabInstance:
         type: 3}
       propertyPath: car
       value: 
-      objectReference: {fileID: 3995591948910635048, guid: a8b0c599dd3457443acf3b818e8c55c1,
+      objectReference: {fileID: 3995591948910635048, guid: 319d9e32d5953224b9be34b8704165d2,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75a422edaa0d7d446a49895b56db3e17, type: 3}
@@ -10078,7 +10078,7 @@ PrefabInstance:
         type: 3}
       propertyPath: car
       value: 
-      objectReference: {fileID: 5470444038341561607, guid: a8cf50d1255da7b4b872ca062bc7d83a,
+      objectReference: {fileID: 5470444038341561607, guid: 190c74b8716a17a41bfa736321894629,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75a422edaa0d7d446a49895b56db3e17, type: 3}

@@ -5096,7 +5096,7 @@ GameObject:
   - component: {fileID: 6992387994790630921}
   - component: {fileID: 309254248244210255}
   m_Layer: 10
-  m_Name: Car_Red
+  m_Name: Car_Red_Slow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5134,8 +5134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leathalStop: 5
-  wheelDriveForce: 100
-  startingSpeed: 30
+  wheelDriveForce: 200
+  startingSpeed: 27
 --- !u!33 &1927585643171652182
 MeshFilter:
   m_ObjectHideFlags: 0

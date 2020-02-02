@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 817616156897563303}
   - component: {fileID: 879334567885067691}
   m_Layer: 10
-  m_Name: Car_Ambulance
+  m_Name: Car_BlueVan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,7 +539,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3995591948910635048}
-  m_Mesh: {fileID: 5331622200699134024, guid: a6df3d78b4e697942bb994627a99ac2e, type: 3}
+  m_Mesh: {fileID: -6348375196269169183, guid: a6df3d78b4e697942bb994627a99ac2e, type: 3}
 --- !u!23 &776868652237215239
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -608,7 +608,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 5331622200699134024, guid: a6df3d78b4e697942bb994627a99ac2e, type: 3}
+  m_Mesh: {fileID: -6348375196269169183, guid: a6df3d78b4e697942bb994627a99ac2e, type: 3}
 --- !u!1 &8330181679950676388
 GameObject:
   m_ObjectHideFlags: 0

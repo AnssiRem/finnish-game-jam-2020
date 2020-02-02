@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 8815414010840912982}
   - component: {fileID: 5681924654553121577}
   m_Layer: 10
-  m_Name: Car_White
+  m_Name: Car_White_Slow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -530,8 +530,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leathalStop: 5
-  wheelDriveForce: 100
-  startingSpeed: 30
+  wheelDriveForce: 200
+  startingSpeed: 27
 --- !u!33 &7629141231358374827
 MeshFilter:
   m_ObjectHideFlags: 0

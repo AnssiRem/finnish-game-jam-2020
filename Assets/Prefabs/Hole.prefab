@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillSpeed: 0.8
-  growthSpeed: 0.5
+  growthSpeed: 1
   offsetY: 1
   laja: {fileID: 4973044650377484278}
 --- !u!65 &6753970111226022928
