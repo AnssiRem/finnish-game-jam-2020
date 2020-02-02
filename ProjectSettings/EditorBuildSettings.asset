@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/_Scenes/Jannescene.unity
-    guid: 5216185dd04de554db032377b4c80956
   - enabled: 1
-    path: Assets/_Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/_Scenes/Level 1.unity
+    guid: b18e2e633018d6b47afa8bba39ac24fa
   - enabled: 1
-    path: Assets/_Scenes/Main Menu.unity
-    guid: c773fdf97ce92d0428e472574aaf8cfa
+    path: Assets/_Scenes/Level 2.unity
+    guid: da5edeb2965f2504fbcc8b4f6ce00671
+  - enabled: 1
+    path: Assets/_Scenes/Level 3.unity
+    guid: 3a381deb8b04f0e449e64de8bb926324
   m_configObjects: {}
