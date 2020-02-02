@@ -19726,7 +19726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leathalStop: 5
-  wheelDriveForce: 3000
+  wheelDriveForce: 200
   startingSpeed: 40
 --- !u!33 &8277180700390493224
 MeshFilter:
