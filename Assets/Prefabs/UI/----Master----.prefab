@@ -70,10 +70,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7258319494513139110}
+  - component: {fileID: 5256227151878038967}
+  - component: {fileID: 7160740165153686483}
   - component: {fileID: 6171153721675276707}
   - component: {fileID: 3142320283154987486}
   - component: {fileID: 6925018912618888283}
-  - component: {fileID: 5256227151878038967}
   m_Layer: 5
   m_Name: ----Master----
   m_TagString: Untagged
@@ -101,6 +102,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &5256227151878038967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911157289955043205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a44ecdfbcdd294bb54509778575318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagPrefab: {fileID: 8498792548316079006, guid: b583232a50c6aa44ca256fd225675ffc,
+    type: 3}
+  layoutObject: {fileID: 4808241277209563551}
+--- !u!114 &7160740165153686483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911157289955043205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681b5a53c07c5254db1710f702f4a52a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carInfos: []
 --- !u!223 &6171153721675276707
 Canvas:
   m_ObjectHideFlags: 0
@@ -161,18 +190,3 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5256227151878038967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911157289955043205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63a44ecdfbcdd294bb54509778575318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flagPrefab: {fileID: 8498792548316079006, guid: b583232a50c6aa44ca256fd225675ffc,
-    type: 3}
-  layoutObject: {fileID: 4808241277209563551}

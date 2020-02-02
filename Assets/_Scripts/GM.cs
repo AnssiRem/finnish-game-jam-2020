@@ -16,7 +16,7 @@ public class GM : MonoBehaviour
 
     [SerializeField] private GameObject layoutObject = null;
 
-    void Start()
+    void Awake()
     {
         foreach (Car car in FindObjectsOfType<Car>())
         {
