@@ -59,6 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07912fad39bdd0b45b887a99370bdd84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fillSpeed: 0.8
+  growthSpeed: 0.5
   offsetY: 1
   laja: {fileID: 4973044650377484278}
 --- !u!65 &6753970111226022928

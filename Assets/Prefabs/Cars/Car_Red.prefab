@@ -5133,8 +5133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e73d63470f65547abaa833a9b2db07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leathalStop: 5
   wheelDriveForce: 100
-  startingSpeed: 0
+  startingSpeed: 30
 --- !u!33 &1927585643171652182
 MeshFilter:
   m_ObjectHideFlags: 0
